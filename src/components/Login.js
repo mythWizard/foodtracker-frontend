@@ -13,7 +13,7 @@ const Login = () => {
 			const u = JSON.parse(loggedUser)
 			dispatch(userLogin(u))
 		}
-	}, [])
+	}, [dispatch])
 
 	const handleLogin = async (e) => {
 		e.preventDefault()
