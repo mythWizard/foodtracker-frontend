@@ -7,12 +7,14 @@ import { Input, Grid } from '@material-ui/core'
 
 const FoodLog = () => {
 
-	const entries = useSelector(state => state.entries)
-	const today = new Date().toISOString().split('T')[0]
+	//const today = new Date().toISOString().split('T')[0]
 	//Needs to update when the day updates
 
 	const dispatch = useDispatch()
 	const date = useSelector(state => state.date)
+	const entries = useSelector(state => state.entries).filter(e => e.date.split('T')[0] === date)
+
+	//console.log(entries)
 
 	//const [date, setDate] = useState(today)
 
@@ -25,20 +27,20 @@ const FoodLog = () => {
 				<Grid item>
 					<Input type='date' id='date' value={date} onChange={(e) => dispatch(setDate(e.target.value))}/>
 					<h2>Breakfast</h2>
-					<Grid container>
-						{entries.filter(e => e.date.split('T')[0] === date).filter(e => e.meal === 'Breakfast').map(e => <Entry key={e.id} entry={e}/>)}
+					<Grid container wrap='wrap' spacing={3}>
+						{entries.filter(e => e.meal === 'Breakfast').map(e => <Entry key={e.id} entry={e}/>)}
 					</Grid>
 					<h2>Lunch</h2>
-					<Grid container>
-						{entries.filter(e => e.date.split('T')[0] === date).filter(e => e.meal === 'Lunch').map(e => <Entry key={e.id} entry={e}/>)}
+					<Grid container wrap='wrap' spacing={3}>
+						{entries.filter(e => e.meal === 'Lunch').map(e => <Entry key={e.id} entry={e}/>)}
 					</Grid>
 					<h2>Dinner</h2>
-					<Grid container>
-						{entries.filter(e => e.date.split('T')[0] === date).filter(e => e.meal === 'Dinner').map(e => <Entry key={e.id} entry={e}/>)}
+					<Grid container wrap='wrap' spacing={3}>
+						{entries.filter(e => e.meal === 'Dinner').map(e => <Entry key={e.id} entry={e}/>)}
 					</Grid>
 					<h2>Snacks</h2>
-					<Grid container>
-						{entries.filter(e => e.date.split('T')[0] === date).filter(e => e.meal === 'Snack').map(e => <Entry key={e.id} entry={e}/>)}
+					<Grid container wrap='wrap' spacing={3}>
+						{entries.filter(e => e.meal === 'Snack').map(e => <Entry key={e.id} entry={e}/>)}
 					</Grid>
 				</Grid>
 			</Grid>

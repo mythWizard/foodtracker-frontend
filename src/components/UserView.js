@@ -19,7 +19,7 @@ const UserView = () => {
 	return(
 		<div>
 			<MenuBar />
-			<Grid container spacing={3}>
+			<Grid container wrap='nowrap' spacing={3}>
 				<Grid item>
 					<FoodChart />
 				</Grid>

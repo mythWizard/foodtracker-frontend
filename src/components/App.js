@@ -9,7 +9,7 @@ const App = () =>{
 	const user = useSelector(state => state.user)
 
 	return (
-		<Container>
+		<Container disableGutters={true} maxWidth={false}>
 			<div>
 				{!user && <Login />}
 				{user && <UserView />}

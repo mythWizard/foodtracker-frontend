@@ -82,12 +82,10 @@ const FoodChart = () => {
 			.attr('transform', `translate(${size / 2}, ${size / 2})`)
 
 		const partition = d3.partition()
-			.size([2 * Math.PI, size / 2])
+			.size([2 * Math.PI, size/2])
 
 		const root = d3.hierarchy(data)
 			.sum(d => d.value)
-
-		console.log(root.value)
 
 		const nodes = root.descendants()
 
@@ -109,7 +107,7 @@ const FoodChart = () => {
 			.attr('display', d => d.depth ? null : 'none')
 			.attr('d', arc)
 			.style('stroke', '#fff')
-			.style('fill', d => color((d.children ? d : d.parent).data.name))
+			.style('fill', d => color(d.data.name))//(d.children ? d : d.parent).data.name))
 
 		slices.append('text')
 			.filter(d => d.parent)
@@ -133,7 +131,7 @@ const FoodChart = () => {
 	const date = useSelector(state => state.date)
 	const entries = useSelector(state => state.entries).filter(e => e.date.split('T')[0] === date)
 	//const [data, setData] = useState({})
-	const [mode, setMode] = useState('macros')
+	const [mode, setMode] = useState('calories')
 
 	const data = mode === 'macros' ? d3Macros(entries) : d3Calories(entries)
 
