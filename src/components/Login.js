@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import loginService from '../services/loginService'
 import { userLogin } from '../reducers/userReducer'
-import { FormControl, Input, InputLabel, Button } from '@material-ui/core'
+import { Grid, Paper, FormControl, Input, InputLabel, Button } from '@material-ui/core'
 
 const Login = () => {
 	
@@ -27,26 +27,32 @@ const Login = () => {
 	}
 
 	return(
-		<form onSubmit={handleLogin}>
-			<div>
-			<FormControl>
-				<InputLabel htmlFor='username'>Username:</InputLabel>
-				<Input id='username' type='text'/>
-			</FormControl>
-			</div>
+		<Grid container justify='center' alignContent='center' alignItems='center'>
+			<Grid item>
+				<Paper variant='outlined'>
+					<form onSubmit={handleLogin}>
+						<div>
+							<FormControl>
+								<InputLabel htmlFor='username'>Username:</InputLabel>
+								<Input id='username' type='text'/>
+							</FormControl>
+						</div>
 
-			<div>
-			<FormControl>
-				<InputLabel htmlFor='password'>Password:</InputLabel>
-				<Input id='password' type='password' />
-			</FormControl>
-			</div>
+						<div>
+							<FormControl>
+								<InputLabel htmlFor='password'>Password:</InputLabel>
+								<Input id='password' type='password' />
+							</FormControl>
+						</div>
 
-			<div>
-				<Button type='submit' variant='contained' color='primary'>Login!</Button>
-			</div>
-		</form>
-	)
+						<div>
+							<Button type='submit' variant='contained' color='primary'>Login!</Button>
+						</div>
+					</form>
+				</Paper>
+			</Grid>
+			</Grid>
+			)
 }
 
 export default Login
