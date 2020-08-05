@@ -14,7 +14,7 @@ const Entry = ({ entry }) => {
 						<Paper>
 							<Grid container direction='column'>
 								<Grid item><Typography variant='h6'>Calories</Typography></Grid>
-								<Grid item>{entry.calories}g</Grid>
+								<Grid item>{entry.calories}</Grid>
 							</Grid>
 						</Paper>
 					</Grid>

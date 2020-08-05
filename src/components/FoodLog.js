@@ -22,9 +22,6 @@ const FoodLog = () => {
 		<div>
 			<Grid container direction='column'>
 				<Grid item>
-					<FoodForm />
-				</Grid>
-				<Grid item>
 					<Input type='date' id='date' value={date} onChange={(e) => dispatch(setDate(e.target.value))}/>
 					<h2>Breakfast</h2>
 					<Grid container wrap='wrap' spacing={3}>
